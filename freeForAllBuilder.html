@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Charlie Brown Adlib</title>
+    <style>
+      html, body {
+        background-color: red;
+        color: white;
+      }
+
+      input {
+        background-color: transparent;
+        width: 150px;
+        border-radius: 5px;
+      }
+
+      #btn {
+        border: solid 2px white;
+        background-color: green;
+        color: white;
+        width: 80px;
+        text-align: center;
+        margin-top: 3px;
+        margin-left: 3px;
+      }
+
+      #tree {
+        margin-left: -50px;
+      }
+
+      img {
+        position: absolute;
+        width: 250px;
+        margin-left: 150px;
+        margin-top: 300px;
+      }
+
+      #form {
+        width: 60vw;
+        float: left;
+        display: flex;
+        flex-flow: column;
+      }
+
+      #text {
+        position: absolute;
+        max-width: 600px;
+        margin-top: 50px;
+        margin-left: 50px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="form">
+    <h3>Please enter the following:</h3>
+    Adjective: <input type="text" name="adj">
+    Adjective: <input type="text" name="adj">
+    Adjective: <input type="text" name="adj">
+    Adjective: <input type="text" name="adj">
+    Animal: <input type="text" name="adj">
+    Object: <input type="text" name="adj">
+    Verb (present tense): <input type="text" name="adj">
+    Verb (ending in ing): <input type="text" name="adj">
+    Music Genre: <input type="text" name="adj">
+    Ovject: <input type="text" name="adj">
+    Type of Material: <input type="text" name="adj">
+    Object: <input type="text" name="adj">
+    Adjective: <input type="text" name="adj">
+    Adjecitve: <input type="text" name="adj">
+    <div id="btn">Submit</div>
+    </div>
+    <p id="text"></p>
+    <img id="tree" src="tree.png" alt="">
+    <img src="charlieBrown.png" alt="">
+    <script type="text/javascript">
+
+      document.getElementById("btn").addEventListener("click", setText);
+      text = "Christmas was right around the corner, and it was supposed to be the most - tmie of the year. But Charlie Brown couldn't shake his - feelings. Everywhere he turned, he was bombarded wiht - lights and - decorations. Even his - Snoopy had been swept up in the commercialism of Christmas, as he hastily decorated his - in hopes of winning the neighborhood contest. Hoping to - his spirit, Lucy suggested that Charlie direct the school play. But he soon realize that the play had been tainted with modern - and - music. So Lucy charged Charlie and Linus (a boy obsessed with his - ) with the task of getting a Christmas tree for the play, preferably \"a big shiny - one \". Once at the lot, Charlie instantly attached himself to a pitiful - . Once they brought the - tree back to the school, everyone laughed at their - choice of a tree. Utterly dismayed by their response, Charlie wondered about the true meaning of Christmas."
+
+      p = document.getElementById("text")
+      broken = text.split(" ");
+      function setText() {
+        document.getElementById("form").style.visibility = "hidden";
+        let i = 0;
+        inputArea = document.querySelectorAll("input");
+        input = new Array(inputArea.length);
+        for(let index = 0; index < inputArea.length; index++) {
+          input[index] = inputArea[index].value
+        };
+        for(let j = 0; j < broken.length; j++) {
+          if(broken[j] == '-') {
+            p.textContent = p.textContent + " " + input[i].toUpperCase();;
+            i++;
+          } else {
+            p.textContent = p.textContent + " " + broken[j];;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
